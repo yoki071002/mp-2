@@ -1,7 +1,7 @@
-import UnisContents from "./UnisContents.tsx";
+import UnisContents from "./components/Decorates.tsx";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
-import {Universities} from "./Universities.ts"
+import {Locations} from "./interfaces/Contents.ts"
 
 const ParentDiv = styled.div`
     width: 80vw;
@@ -10,13 +10,13 @@ const ParentDiv = styled.div`
 `;
 
 export default function App(){
-    const [data, setData] = useState<Universities[]>([]);
+    const [data, setData] = useState<Locations[]>([]);
 
     useEffect(() => {
         async function fetchData(){
-            const rawData = await fetch("https://universities.hipolabs.com/search?country=China");
-            const data = await rawData.json();
-            setData(data);
+            const rawData = await fetch("https://rickandmortyapi.com/api/location/");
+            const {results} : {results: Locations[]} = await rawData.json();
+            setData(results);
         }
         fetchData()
             .then(() => console.log("Data fetched successfully"))

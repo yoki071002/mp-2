@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Universities} from "./Universities.ts";
+import {Locations} from "../interfaces/Contents.ts";
 
 const AllUniDiv = styled.div`
     display: flex;
@@ -11,11 +11,11 @@ const AllUniDiv = styled.div`
     margin: auto;
 `;
 
-const SingleUniDiv = styled.div`
+const SingleUniDiv = styled.div<{status: string}>`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 20%;
+    width: 500px;
     padding: 2%;
     margin: 1%;
     background-color: antiquewhite;
@@ -25,15 +25,16 @@ const SingleUniDiv = styled.div`
     word-wrap: break-word;
 `;
 
-export default function UnisContents(props : {data: Universities[]}){
+export default function UnisContents(props : {data: Locations[]}){
+    console.log(typeof props.data);
     return (
         <AllUniDiv>
             {
-                props.data.map((unis: Universities) =>
-                    <SingleUniDiv key={unis.name}>
-                        <h3>{unis.name}</h3>
-                        <p>{unis.country}</p>
-                        <p>{unis.web_pages}</p>
+                props.data.map((char: Locations) =>
+                    <SingleUniDiv key={char.id} status={char.name}>
+                        <h1>{char.name}</h1>
+                        <p>{char.type}</p>
+                        <p>{char.dimension}</p>
                     </SingleUniDiv>
                 )
             }
