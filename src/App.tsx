@@ -1,7 +1,7 @@
-import UnisContents from "./components/UnisContents.tsx";
+import UnisContents from "./UnisContents.tsx";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
-import {Universities} from "./interfaces/Universities.ts"
+import {Universities} from "./Universities.ts"
 
 const ParentDiv = styled.div`
     width: 80vw;

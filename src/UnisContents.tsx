@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Universities} from "../interfaces/Universities.ts";
+import {Universities} from "./Universities.ts";
 
 const AllUniDiv = styled.div`
     display: flex;
