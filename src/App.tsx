@@ -14,7 +14,7 @@ export default function App(){
 
     useEffect(() => {
         async function fetchData(){
-            const rawData = await fetch("http://universities.hipolabs.com/search?country=China");
+            const rawData = await fetch("https://universities.hipolabs.com/search?country=China");
             const data = await rawData.json();
             setData(data);
         }
